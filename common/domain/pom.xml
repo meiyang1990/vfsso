@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<groupId>com.netfinworks.vfsso</groupId>
+		<artifactId>vfsso-platform-root</artifactId>
+		<version>2.0.0</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>vfsso-domain</artifactId>
+
+	<name>vfsso domain</name>
+	<description>vfsso domain declaration</description>
+
+	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>com.netfinworks.vfsso</groupId>
+			<artifactId>vfsso-cas-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+	</dependencies>
+</project>

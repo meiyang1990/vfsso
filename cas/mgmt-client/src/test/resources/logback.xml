@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoding>UTF-8</encoding>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%-5level] %d{HH:mm:ss sss} %C-%L [%thread] - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.netfinworks.vfsso">
+        <level value="debug" />
+    </logger>
+    
+    <logger name="org.springframework">
+        <level value="warn" />
+    </logger>
+
+    <logger name="com.netfinworks.rest.filter">
+        <level value="debug" />
+    </logger>
+
+    <logger name="com.ibatis">
+        <level value="info" />
+    </logger>
+    <logger name="org.apache.ibatis">
+        <level value="info" />
+    </logger>
+    <logger name="java.sql">
+        <level value="info" />
+    </logger>
+    <logger name="org.apache.commons">
+        <level value="warn" />
+    </logger>
+    <logger name="net.rubyeye.xmemcached">
+        <level value="warn" />
+    </logger>
+    <logger name="com.google.code.yanf4j">
+        <level value="warn" />
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+    
+</configuration>

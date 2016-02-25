@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+	<!-- captcha config -->	
+    <bean id="captchaConfig" class="com.netfinworks.guardian.unilogin.common.CaptchaConfig">
+    	<property name="captchaAlwaysNew" value="${unilogin.captcha.alwaysNew}" />
+    	<property name="captchaGenUrl" value="${unilogin.captcha.gen.url}" />
+    	<property name="captchaValUrl" value="${unilogin.captcha.val.url}" />
+    	<property name="captchExpireSecond" value="${unilogin.captcha.expireSecond}" />
+    	<property name="productCode" value="${unilogin.captcha.productCode}" />
+    </bean>
+    
+    <!-- httpclient -->
+    <bean id="httpClientFactory" class="com.netfinworks.guardian.unilogin.common.HttpClientFactory">
+    	<property name="soTimeoutMs" value="${httpClient.soTimeoutMs}" />
+    	<property name="connectionTimeoutMs" value="${httpClient.connectionTimeoutMs}" />
+    </bean>
+    
+    <bean id="httpClient" factory-bean="httpClientFactory" factory-method="factory" />
+    
+</beans>

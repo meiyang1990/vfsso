@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd"
+		default-autowire="byName">
+    
+	<!-- common velocityProperties -->
+	<bean id="commonVelocityProperties" class="java.util.Properties">  
+        <constructor-arg type="java.util.Properties">  
+            <props>  
+                <prop key="input.encoding">UTF-8</prop> 
+                <prop key="output.encoding">UTF-8</prop>
+                <prop key="directive.foreach.counter.name">velocityCount</prop>
+                <prop key="directive.foreach.counter.initial.value">1</prop>
+                <prop key="resource.loader">rest</prop> 
+                <prop key="rest.resource.loader.class">com.netfinworks.rest.render.VelocityResourceLoader</prop>
+                <prop key="rest.resource.loader.debug">${rest.resource.loader.debug}</prop>
+                
+                <prop key="velocimacro.library">META-INF/velocity/macro/macro.vm</prop>                
+            </props>  
+        </constructor-arg>  
+    </bean>
+	<!-- common frame data provider -->
+	<bean id="commonFrameDataProvider" class="com.netfinworks.vfsso.ulogin.common.CommonFrameProvider">
+		<property name="data">
+			<map>
+				<entry key="STATIC_RESOURCE_URL_ROOT" value="${privilegeAdmin.staticResourceUrlRoot}" />
+				<entry key="DOJO_ROOT" value="${privilegeAdmin.dojoRoot}" />
+				<entry key="RIA_ROOT" value="${privilegeAdmin.riaRoot}" />
+			</map>
+		</property>
+	</bean>
+	<!-- blank frame velocity render -->
+	<bean id="blankVelocityRender" class="com.netfinworks.rest.render.ClassPathVelocityFragmentRender">
+		<property name="fragmentDataName" value="data" />
+		<property name="fragmentTemplatePrefix" value="/META-INF/velocity/fragment" />
+		<property name="frameTemplatePrefix" value="/META-INF/velocity/frame" />
+		<property name="fragmentVariableName" value="SCREEN_CONTENT" />
+		<property name="frameDataName" value="frameData" />
+		<!-- 框架数据提供者 -->
+		<property name="frameDataProvider" ref="commonFrameDataProvider" />
+		<property name="frameTemplate" value="/blank" />
+		<property name="suffix" value=".html" />
+		<property name="velocityProp" ref="commonVelocityProperties" />
+	</bean>
+
+	<bean id="loginVelocityRender" class="com.netfinworks.rest.render.ClassPathVelocityFragmentRender" parent="blankVelocityRender">
+		<property name="frameTemplate" value="/app" />
+	</bean>
+
+	<bean id="jsonRender" class="com.netfinworks.rest.render.JsonRender"></bean>
+	
+	<bean id="txtRender" class="com.netfinworks.rest.render.TxtRender"></bean>
+	
+	<bean id="loginRender" class="com.netfinworks.vfsso.ulogin.render.LoginRender">
+		<property name="crossDomainList" value="${vfsso.login.cookie.domains}" />
+	</bean>
+</beans>

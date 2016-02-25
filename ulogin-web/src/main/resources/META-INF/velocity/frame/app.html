@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>${page_title}</title>
+<meta name="keywords" content="富捷 支付 Guardian 登录 平台" />
+<meta name="description" content="富捷支付Guardian系统统一登录平台" />
+<meta name="author" content="huipeng@netfinworks.com Co.,Ltd." />
+<meta name="copyright" content="Copyright © 2014 Netfinframeworks.com Co.,Ltd." />
+<link rel="stylesheet" type="text/css" href="${frameData.STATIC_RESOURCE_URL_ROOT}/login/base.css">
+<link rel="stylesheet" type="text/css" href="${frameData.STATIC_RESOURCE_URL_ROOT}/login/login.css">
+<link rel="stylesheet" href="${frameData.DOJO_ROOT}/dijit/themes/claro/claro.css" media="screen">
+<script>dojoConfig = {async: true, parseOnLoad: true}</script>
+<script src="${frameData.DOJO_ROOT}/dojo/dojo.js"></script>
+<script type="text/javascript" src="${frameData.RIA_ROOT}/dialog.js"></script>
+</head>
+<body class="claro">
+    <div id="header">
+        <div class="layout">
+            <img src="${frameData.STATIC_RESOURCE_URL_ROOT}/login/img/logo.png" alt="富捷支付Guardian系统统一登录平台" id="logo"/>
+        </div>
+    </div>
+    <div id="content">
+        <div class="layout">
+           <img src="${frameData.STATIC_RESOURCE_URL_ROOT}/login/img/welcome_logo.png" id="welcome_logo" alt="welcome" />
+$SCREEN_CONTENT
+        </div>
+    </div>
+</body>
+</html>

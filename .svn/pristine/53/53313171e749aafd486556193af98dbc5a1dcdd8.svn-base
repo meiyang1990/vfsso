@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- appender -->
+	<appender name="CONSOLE-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8" />
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="net.rubyeye.xmemcached">
+		<level value="warn" />
+	</logger>
+	<logger name="com.google.code.yanf4j">
+		<level value="warn" />
+	</logger>
+
+	<!-- root -->
+	<root level="debug">
+		<appender-ref ref="CONSOLE-APPENDER" />
+	</root>
+</configuration>  

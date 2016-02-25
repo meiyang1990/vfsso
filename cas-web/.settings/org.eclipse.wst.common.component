@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="vfsso-cas">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="ucs-support-annotation-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ucs-support-annotation/ucs-support-annotation">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ucs-enhanced-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ucs-enhanced/ucs-enhanced">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ucs-core-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ucs-core/ucs-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ucs-local-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ucs-local/ucs-local">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ucs-memcached-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ucs-memcached/ucs-memcached">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="vfsso-session-repo-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vfsso-session-repo/vfsso-session-repo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="vfsso-session-core-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vfsso-session-core/vfsso-session-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="vfsso-domain-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vfsso-domain/vfsso-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="vfsso-util-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vfsso-util/vfsso-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="vfsso-cas-core-2.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vfsso-cas-core/vfsso-cas-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="cas"/>
+        <property name="java-output-path" value="/vfsso-cas/target/classes"/>
+    </wb-module>
+</project-modules>

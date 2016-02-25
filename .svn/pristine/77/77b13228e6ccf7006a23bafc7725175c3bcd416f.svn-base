@@ -1,0 +1,37 @@
+#app: identify this application in VFSSO
+#appId = EWPerson
+appId = EWEnterprise
+
+#loginUrl:
+loginUrl = http://localhost:8080/index.htm
+
+#logoutUrl:
+logoutUrl = http://localhost:8080/index.htm
+
+#cas server Url
+casUrl = http://10.65.215.11:8214/cas-web/
+
+#httpClientConnectionTimeout: http client connection timeout in ms
+httpClientConnectionTimeout = 3000
+
+#httpClientSoTimeout: http client socket timeout in ms
+httpClientSoTimeout = 3000
+
+#notAuthencated: resources not needed filter
+notAuthencated = index\.htm,login.*,logout.*,pvc.*,ocx.*,my/refind/loginPwd.*,forbidden[.]htm
+
+#notAudit: resources not needed save audit info; if resource in authencated, notAudit don't work.
+notAudit = index\.htm
+
+#defaultStyle: default system resource style, RPC/REST
+defaultStyle = REST
+
+#defaultMethodParamName: if style is RPC, filter will find the method via defaultMethodParamName 
+#  like  someController?method=query, methodParamName is method , and method is query
+defaultMethodParamName = 
+
+#defaultMethod: if style is RPC, and method not found via methodParamName, method = defaultMethod 
+defaultMethod = 
+
+#listeners
+listeners = com.netfinworks.vfsso.client.cas.listener.DefaultListener

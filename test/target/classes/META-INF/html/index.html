@@ -1,0 +1,11 @@
+<div class="hero-unit">
+	<h1>VFSSO<small>测试系统</small></h1>
+	<p></p>
+	<p>
+		<span style="color: blue">${frameData.currentUser.name}(${frameData.currentUser.loginName})</span>正在登录系统。
+		<br>
+		<a href="${frameData.uniLogoutUrl}">退出</a>
+	</p>
+</div>
+<#include '/inc/commjs.html' />
+<script src="${frameData.staticResRoot}/applications/${frameData.appName}/js/index.js"></script>

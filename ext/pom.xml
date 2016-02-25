@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<groupId>com.netfinworks.vfsso</groupId>
+		<artifactId>vfsso-platform-root</artifactId>
+		<version>2.0.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>vfsso-ext-parent</artifactId>
+
+	<name>vfsso ext</name>
+	<description>vfsso application</description>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>author</module>
+		<module>captcha</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

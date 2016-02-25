@@ -1,0 +1,59 @@
+<beforescript>
+<script>
+debug('before script ns = ' + ns);
+</script>
+</beforescript>
+
+<body>
+	<!-- 界面布局 -->
+	<div id="@ns@updateForm" style="width: 400px;" data-dojo-type="dijit/form/Form"  data-dojo-id="@ns@updateForm"
+			encType="application/x-www-form-urlencoded" action="changepass" method="put">
+		<table style="border: 1px solid;width:400px" cellspacing="5">
+			<tr>
+				<td><label for="@ns@password">原密码:</label></td>
+				<td><input id="@ns@password" name="password" type="password" autocomplete="off" data-dojo-type='dijit/form/ValidationTextBox'
+				data-dojo-props="required:'true',missingMessage:'密码不能为空'" /></td>
+			</tr>
+			<tr>
+				<td><label for="@ns@newPassword">新密码:</label></td>
+				<td><input id="@ns@newPassword" name="newPassword" type="password" autocomplete="off" data-dojo-type='dijit/form/ValidationTextBox'
+				data-dojo-props="required:'true',promptMessage:'至少输入6位密码',pattern:'.{6,22}',missingMessage:'新密码不能为空',invalidMessage:'密码为6～22位'" /></td>
+			</tr>
+			<tr>
+				<td><label for="@ns@rePassword">重复新密码:</label></td>
+				<td><input id="@ns@rePassword" name="rePassword" type="password" autocomplete="off" data-dojo-type='dijit/form/ValidationTextBox'
+				data-dojo-props="required:'true',validator:function(v){return dijit.byId('@ns@newPassword').getValue()==v;},missingMessage:'重复新密码不能为空',invalidMessage:'两次输入密码不一致'" /></td>
+			</tr>
+		</table>
+		<div class="dijitDialogPaneActionBar">
+			<button id="@ns@save" data-dojo-type="dijit/form/Button" >修改</button>
+			<button id="@ns@cancel" data-dojo-type="dijit/form/Button" >取消</button>
+		</div>
+	</div>
+	
+</body>
+
+<afterscript>
+<script>
+var handleSucc = function(){
+	alert("密码修改成功.")
+	dlg.close();
+}
+
+require(['dojo/ready','dijit/registry','dojo/on'],function(ready,registry,on){
+	ready(function(){
+		on(registry.byId('@ns@save'),'click',function(){
+			saveForm({formId:"@ns@updateForm",formValidation:"true",btnIdToDisable:"@ns@save",succCallBack:{func:handleSucc}});
+		});
+		on(registry.byId('@ns@cancel'),'click',function(){
+			dlg.close();
+		});
+	});
+});
+debug('after script : ns = ' + ns);
+</script></afterscript>
+
+<destroyscript>
+<script>
+	//界面显示后脚本
+</script></destroyscript>
